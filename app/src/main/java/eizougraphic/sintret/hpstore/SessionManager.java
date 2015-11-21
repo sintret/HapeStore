@@ -63,12 +63,29 @@ public class SessionManager {
     }
 
 
-    public String email() {
-        return pref.getString(AppConfig.TAG_EMAIL, "DEFAULT");
+    public String getEmail() {
+        return pref.getString(AppConfig.TAG_EMAIL, "");
     }
-
-    public String token() {
-        return pref.getString(AppConfig.TAG_TOKEN, "DEFAULT");
+    public String getToken() {
+        return pref.getString(AppConfig.TAG_TOKEN, "");
+    }
+    public String getFullname() {
+        return pref.getString("fullname", "");
+    }
+    public String getStore() {
+        return pref.getString("store", "");
+    }
+    public String getAddress() {
+        return pref.getString("address", "");
+    }
+    public String getLatitude() {
+        return pref.getString("latitude", "");
+    }
+    public String getLongitude() {
+        return pref.getString("longitude", "");
+    }
+    public String getQrCode() {
+        return pref.getString("qr_code", "");
     }
 
     public void createLoginSession(String email, String token, String created_at) {
@@ -86,10 +103,12 @@ public class SessionManager {
     }
 
     public void setProfile(String jsonString) {
-        JSONObject jsonObject = null;
+        editor.putString(AppConfig.TAG_JSON_PROFILE, jsonString);
+
         try {
-            jsonObject = new JSONObject(jsonString);
-            String email = jsonObject.getString(AppConfig.TAG_EMAIL);
+            JSONObject jsonObject = new JSONObject(jsonString);
+            String fullname = jsonObject.getString("fullname");
+            String email = jsonObject.getString(AppConfig.TAG_USERNAME);
             String token = jsonObject.getString(AppConfig.TAG_TOKEN);
             String store_id = jsonObject.getString(AppConfig.TAG_STORE_ID);
             editor.putBoolean(KEY_IS_LOGGEDIN, true);
@@ -98,26 +117,61 @@ public class SessionManager {
             editor.putString(AppConfig.TAG_EMAIL, email);
             editor.putString(AppConfig.TAG_TOKEN, token);
             editor.putString(AppConfig.TAG_STORE_ID, store_id);
+            editor.putString("fullname", fullname);
 
-            // commit changes
-            editor.commit();
-            Log.d(TAG, "Profile Changes!");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        // commit changes
+        editor.commit();
+        Log.d(TAG, "Profile Changes!");
+
+
     }
 
-    public void setStore(String jsonString) {
+    public void setStores(String jsonString) {
         editor.putString(AppConfig.TAG_JSON_STORE, jsonString);
-            // commit changes
-            editor.commit();
-            Log.d(TAG, "Store Changes!");
+
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            String store = jsonObject.getString("title");
+            String address = jsonObject.getString("address");
+            String latitude = jsonObject.getString("latitude");
+            String longitude = jsonObject.getString("longitude");
+            String qr_code = jsonObject.getString("qr_code");
+            // Storing name in pref
+            editor.putString("store", store);
+            editor.putString("address", address);
+            editor.putString("latitude", latitude);
+            editor.putString("longitude", longitude);
+            editor.putString("qr_code", qr_code);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // commit changes
+        editor.commit();
+        Log.d(TAG, "Store Changes!");
     }
 
-    public String getStore() {
+    public String getStores() {
         return pref.getString(AppConfig.TAG_JSON_STORE, "");
     }
+
+    public void setMessages(String jsonString) {
+        editor.putString(AppConfig.TAG_JSON_MESSAGES, jsonString);
+        // commit changes
+        editor.commit();
+        Log.d(TAG, "Store Changes!");
+    }
+
+    public String getMessages() {
+        return pref.getString(AppConfig.TAG_JSON_MESSAGES, "");
+    }
+
 
 
 }

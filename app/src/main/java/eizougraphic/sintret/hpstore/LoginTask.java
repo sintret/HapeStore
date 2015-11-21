@@ -125,9 +125,12 @@ public class LoginTask extends AsyncTask<String, String, JSONObject> {
                 onSignupFailed();
             } else {
                 //Jika Oke
-                //session.setLogin(true);
+                session.setLogin(true);
                 JSONObject json_profile = jsonObject.getJSONObject(AppConfig.TAG_JSON_PROFILE);
                 JSONObject json_store = jsonObject.getJSONObject(AppConfig.TAG_JSON_STORE);
+
+                session.setProfile(json_profile.toString());
+                session.setStores(json_store.toString());
 
                 onSignupSuccess();
             }

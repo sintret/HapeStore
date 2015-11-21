@@ -42,4 +42,14 @@ public class AppConfig {
     public static String ULR_SCAN = URL_CORE + "/api/scan_store.php";
     public static String URL_PULL_MESSAGES = URL_CORE + "/api/pull_messages_store.php";
 
+    public static boolean contains(String haystack, String needle) {
+        haystack = haystack == null ? "" : haystack;
+        needle = needle == null ? "" : needle;
+
+        // Works, but is not the best.
+        //return haystack.toLowerCase().indexOf( needle.toLowerCase() ) > -1
+
+        return haystack.toLowerCase().contains(needle.toLowerCase());
+    }
+
 }
