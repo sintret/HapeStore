@@ -67,11 +67,13 @@ public class ScannerActivity extends BaseActivity {
 
                 if(isPoint){
                     Intent intent1 = new Intent(ScannerActivity.this,PointActivity.class);
+                    intent1.putExtra("qr_code",result.toString());
                     startActivity(intent1);
                     finish();
                 } else {
                     Intent intent1 = new Intent(ScannerActivity.this,MainActivity.class);
                     intent1.putExtra("success","Successfuly to send to server!");
+                    intent.putExtra("qr_code",result.toString());
                     startActivity(intent1);
                     finish();
                     //ScannerTask scannerTask = new ScannerTask(ScannerActivity.this, url, data, progressDialog, session);

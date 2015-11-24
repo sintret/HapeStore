@@ -39,7 +39,7 @@ public class AppConfig {
     public static String URL_LOGIN = URL_CORE + "/api/login_store.php";
 
     // Server user register url
-    public static String ULR_SCAN = URL_CORE + "/api/scan_store.php";
+    public static String URL_SCAN = URL_CORE + "/api/scan_store.php";
     public static String URL_PULL_MESSAGES = URL_CORE + "/api/pull_messages_store.php";
 
     public static boolean contains(String haystack, String needle) {

@@ -30,7 +30,8 @@ public class MainActivity extends BaseActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle!= null){
-            Toast.makeText(getApplicationContext(),"Successfully sent to server",Toast.LENGTH_LONG).show();
+
+            Toast.makeText(getApplicationContext(),bundle.getString(AppConfig.TAG_ERROR_MESSAGE),Toast.LENGTH_LONG).show();
         }
 
         session = new SessionManager(getApplicationContext());
