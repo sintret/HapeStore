@@ -69,6 +69,9 @@ public class SessionManager {
     public String getToken() {
         return pref.getString(AppConfig.TAG_TOKEN, "");
     }
+    public String token() {
+        return pref.getString(AppConfig.TAG_TOKEN, "");
+    }
     public String getFullname() {
         return pref.getString("fullname", "");
     }

@@ -5,15 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by andy on 11/21/2015.
@@ -60,24 +69,73 @@ public class ScannerActivity extends BaseActivity {
                 HashMap<String, String> data = new HashMap<String, String>();
                 data.put("token", session.getToken());
                 data.put("content", result.toString());
+                data.put("qr_code", result.toString());
 
                 textView.setText(result.toString());
 
-                Boolean isPoint = AppConfig.contains(result.toString(),"-points-");
+                Boolean isPoint = AppConfig.contains(result.toString(), "-points-");
 
-                if(isPoint){
-                    Intent intent1 = new Intent(ScannerActivity.this,PointActivity.class);
-                    intent1.putExtra("qr_code",result.toString());
+                if (isPoint) {
+                    Intent intent1 = new Intent(ScannerActivity.this, PointActivity.class);
+                    intent1.putExtra("qr_code", result.toString());
                     startActivity(intent1);
                     finish();
                 } else {
-                    Intent intent1 = new Intent(ScannerActivity.this,MainActivity.class);
+                   /* Intent intent1 = new Intent(ScannerActivity.this,MainActivity.class);
                     intent1.putExtra("success","Successfuly to send to server!");
                     intent.putExtra("qr_code",result.toString());
                     startActivity(intent1);
-                    finish();
-                    //ScannerTask scannerTask = new ScannerTask(ScannerActivity.this, url, data, progressDialog, session);
-                    // scannerTask.execute();
+                    finish();*/
+
+                    String url = AppConfig.URL_SCAN;
+                    String error_message ="Successfully use a coupon";
+
+                    final ProgressDialog pDialog = new ProgressDialog(ScannerActivity.this,
+                            R.style.AppTheme_Dark_Dialog);
+                    pDialog.setMessage("Loading...");
+                    pDialog.show();
+                    CustomRequest jsObjRequest = new CustomRequest(Request.Method.POST, url, data, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("App", response.toString());
+                            //responseText.setText("Response:" + " " +response.toString());
+                            //pDialog.hide();
+                            // Session manager
+                            try {
+                                Boolean error = response.getBoolean(AppConfig.TAG_ERROR);
+                                String error_message = response.getString(AppConfig.TAG_ERROR_MESSAGE);
+
+                                if (error == true) {
+                                    //Jika ada error
+                                    //session.setLogin(false);
+                                } else {
+
+                                    Toast.makeText(ScannerActivity.this, error_message, Toast.LENGTH_LONG).show();
+
+                                }
+                                Intent intent1 = new Intent(ScannerActivity.this, MainActivity.class);
+                                intent1.putExtra(AppConfig.TAG_ERROR_MESSAGE, error_message);
+                                startActivity(intent1);
+                                finish();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            pDialog.hide();
+
+
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError response) {
+                            Log.d("Response: ", response.toString());
+                            pDialog.hide();
+                        }
+                    });
+                    Volley.newRequestQueue(ScannerActivity.this).add(jsObjRequest);
+
 
                 }
 
@@ -87,7 +145,7 @@ public class ScannerActivity extends BaseActivity {
                 //call asyncTask for scanner
                 //LoginTask loginTask = new LoginTask(LoginActivity.this, AppConfig.URL_LOGIN, data,_loginButton, progressDialog, session);
                 //ScannerTask scannerTask = new ScannerTask(ScannerActivity.this, url, data, progressDialog, session);
-               // scannerTask.execute();
+                // scannerTask.execute();
                 //showDialog(R.string.result_succeeded, result.toString());
             } else {
                 textView.setText("Scanner Failed!");
