@@ -23,19 +23,21 @@
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="16sp"
+                android:textSize="30dp"
+                android:textAlignment="center"
                 android:text="Admin Store"
                 android:layout_alignParentTop="true"/>
 
             <TextView
                 android:id="@+id/email"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:textSize="16dp"
+                android:textAlignment="center"
                 android:text="sintret@gmail.com"
                 android:layout_below="@+id/name"/>
 

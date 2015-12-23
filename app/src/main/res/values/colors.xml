@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#F1F1F1</color>
     <color name="colorPrimary">#F1F1F1</color>
-    <color name="colorPrimaryDark">#BDBDBD</color>
-    <color name="colorAccent">#dddddd</color>
-    <color name="text">#212121</color>
+    <color name="colorPrimaryDark">#bf845d</color>
+    <color name="colorAccent">#bf845d</color>
 
-
-
-    <color name="primary">#da1818</color>
+    <color name="primary">#cccccc</color>
     <color name="primary_dark">#555555</color>
     <color name="primary_darker">#333333</color>
     <color name="accent">#FFFFFF</color>
@@ -20,7 +19,4 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
-
-    <color name="red">#ce3b3b</color>
-
 </resources>
