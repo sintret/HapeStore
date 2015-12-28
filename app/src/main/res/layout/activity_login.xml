@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -71,7 +72,7 @@
             android:minHeight="70dp"
             android:textSize="22dip"/>
 
-
+            <!--
             <TextView android:layout_below="@+id/link_signup"
                 android:id="@+id/link_forgot"
                 android:layout_width="fill_parent"
@@ -90,6 +91,6 @@
                 android:text="New here? Sign up"
                 android:gravity="center"
                 android:textSize="18dip"/>
-
+            -->
     </LinearLayout>
 </ScrollView>
