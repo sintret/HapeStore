@@ -26,8 +26,7 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/AppTheme.Dark" >
+            android:name=".LoginActivity" >
         </activity>
         <activity
             android:name=".ScannerActivity"
