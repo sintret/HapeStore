@@ -39,9 +39,9 @@ public class MainActivity extends BaseActivity {
         email = (TextView) findViewById(R.id.email);
         title = (TextView) findViewById(R.id.title);
 
-        name.setText("Name : "+session.getFullname());
-        email.setText("Email :" +session.getEmail());
-        title.setText("Store :" +session.getStore());
+        name.setText(session.getFullname());
+        email.setText("Email : " +session.getEmail());
+        title.setText("Store : " +session.getStore());
 
     }
 

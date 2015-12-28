@@ -42,7 +42,7 @@ public class LoginActivity  extends AppCompatActivity {
     EditText _passwordText;
     @InjectView(R.id.btn_login)
     Button _loginButton;
-    @InjectView(R.id.link_signup)
+    //@InjectView(R.id.link_signup)
     TextView _signupLink;
 
     @Override
