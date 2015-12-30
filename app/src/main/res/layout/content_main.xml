@@ -2,54 +2,84 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/content_main"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="5dp"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
+        android:background="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         card_view:cardCornerRadius="2dp"
-        card_view:contentPadding="10dp">
+        card_view:contentPadding="0dp">
+
         <RelativeLayout
+            android:padding="20dp"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:text="Admin Store"
+                android:layout_alignParentTop="true"/>
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="30dp"
-                android:textAlignment="center"
-                android:text="Admin Store"
-                android:layout_alignParentTop="true"/>
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:textSize="16dp"
-                android:textAlignment="center"
-                android:text="sintret@gmail.com"
-                android:layout_below="@+id/name"/>
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:layout_below="@+id/email"/>
+                android:text="andhie fitria"
+                android:layout_below="@+id/title"/>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/scan_barcode"
+        android:background="@color/green"
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:padding="12dp"
+        android:text="Scan Barcode"
+        android:minHeight="70dp"
+        android:textSize="22dip"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/view_report"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:padding="12dp"
+        android:text="View report"
+        android:minHeight="70dp"
+        android:textSize="22dip"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/print_report"
+        android:background="@color/orange"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:padding="12dp"
+        android:text="Print report"
+        android:minHeight="70dp"
+        android:textSize="22dip"/>
+
 </LinearLayout>

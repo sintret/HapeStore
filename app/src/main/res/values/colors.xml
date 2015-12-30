@@ -3,8 +3,9 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#F1F1F1</color>
     <color name="colorPrimary">#F1F1F1</color>
-    <color name="colorPrimaryDark">#bf845d</color>
-    <color name="colorAccent">#bf845d</color>
+    <color name="colorPrimaryDark">#111111</color>
+    <color name="colorPrimaryButton">#bf845d</color>
+    <color name="colorAccent">#333333</color>
 
     <color name="primary">#cccccc</color>
     <color name="primary_dark">#555555</color>
@@ -19,4 +20,8 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="green">#8cc541</color>
+    <color name="blue">#2aaae2</color>
+    <color name="orange">#fbae3b</color>
 </resources>

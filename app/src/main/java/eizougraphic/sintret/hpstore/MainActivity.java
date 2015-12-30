@@ -36,12 +36,12 @@ public class MainActivity extends BaseActivity {
 
         session = new SessionManager(getApplicationContext());
         name = (TextView) findViewById(R.id.name);
-        email = (TextView) findViewById(R.id.email);
+        //email = (TextView) findViewById(R.id.email);
         title = (TextView) findViewById(R.id.title);
 
-        name.setText(session.getFullname());
-        email.setText("Email : " +session.getEmail());
-        title.setText("Store : " +session.getStore());
+        name.setText(session.getFullname() + " / " + session.getEmail());
+        //email.setText(" / " +session.getEmail());
+        title.setText(session.getStore());
 
     }
 
