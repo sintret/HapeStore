@@ -109,19 +109,27 @@ public class PointTask extends AsyncTask<String, String, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject jObj) {
+        Log.d("JOSN ERROR", jObj.toString());
         jsonObject = jObj;
         // Session manager
         try {
 
             Boolean error = jsonObject.getBoolean(AppConfig.TAG_ERROR);
             String error_message = jsonObject.getString(AppConfig.TAG_ERROR_MESSAGE);
+            String json_message = jsonObject.getString(AppConfig.TAG_JSON_MESSAGES);
+
+            session.setMessages(json_message);
             //Log.d("email user",email+" is true");
-            Log.d("status",error+" is " + error);
+            Log.d("status", error + " is " + error);
             Log.d("JSON OBJECT", jsonObject.toString());
 
-            Intent intent = new Intent(context, MainActivity.class);
+            Intent intent = new Intent(context, ReportActivity.class);
             intent.putExtra(AppConfig.TAG_ERROR_MESSAGE, error_message);
             context.startActivity(intent);
+
+           /* Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();*/
 
         } catch (JSONException e) {
             e.printStackTrace();

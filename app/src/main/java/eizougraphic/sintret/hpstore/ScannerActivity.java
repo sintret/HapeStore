@@ -45,6 +45,21 @@ public class ScannerActivity extends BaseActivity {
         View inflated = stub.inflate();
         /* your logic here */
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //What to do on back clicked
+                Intent intent = new Intent(ScannerActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         session = new SessionManager(getApplicationContext());
         textView = (TextView) findViewById(R.id.textView);
         IntentIntegrator integrator = new IntentIntegrator(ScannerActivity.this);

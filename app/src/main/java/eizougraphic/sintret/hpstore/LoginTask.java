@@ -128,9 +128,11 @@ public class LoginTask extends AsyncTask<String, String, JSONObject> {
                 session.setLogin(true);
                 JSONObject json_profile = jsonObject.getJSONObject(AppConfig.TAG_JSON_PROFILE);
                 JSONObject json_store = jsonObject.getJSONObject(AppConfig.TAG_JSON_STORE);
+                String json_message = jsonObject.getString(AppConfig.TAG_JSON_MESSAGES);
 
                 session.setProfile(json_profile.toString());
                 session.setStores(json_store.toString());
+                session.setMessages(json_message);
 
                 onSignupSuccess();
             }

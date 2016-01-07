@@ -3,6 +3,7 @@ package eizougraphic.sintret.hpstore;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends BaseActivity {
     private SessionManager session;
     TextView name,email,title;
+    AppCompatButton print_report,view_report,scan_barcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,30 @@ public class MainActivity extends BaseActivity {
         stub.setLayoutResource(R.layout.content_main);
         View inflated = stub.inflate();
         /* your logic here */
+
+        scan_barcode = (AppCompatButton) findViewById(R.id.scan_barcode);
+        view_report = (AppCompatButton) findViewById(R.id.view_report);
+        print_report = (AppCompatButton) findViewById(R.id.print_report);
+
+
+        scan_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ScannerActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        view_report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ReportActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         Bundle bundle = getIntent().getExtras();
         if(bundle!= null){

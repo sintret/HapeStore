@@ -168,7 +168,7 @@ public class SessionManager {
         editor.putString(AppConfig.TAG_JSON_MESSAGES, jsonString);
         // commit changes
         editor.commit();
-        Log.d(TAG, "Store Changes!");
+        Log.d(TAG, "Messagez Changes!");
     }
 
     public String getMessages() {
