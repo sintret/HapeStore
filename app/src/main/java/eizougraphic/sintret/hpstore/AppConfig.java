@@ -41,6 +41,7 @@ public class AppConfig {
     // Server user register url
     public static String URL_SCAN = URL_CORE + "/api/scan_store.php";
     public static String URL_PULL_MESSAGES = URL_CORE + "/api/pull_messages_store.php";
+    public static String URL_PRINT = URL_CORE + "/api/print.php";
 
     public static boolean contains(String haystack, String needle) {
         haystack = haystack == null ? "" : haystack;
