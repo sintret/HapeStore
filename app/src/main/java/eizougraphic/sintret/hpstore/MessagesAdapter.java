@@ -1,5 +1,6 @@
 package eizougraphic.sintret.hpstore;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.ContentHandler;
 import java.util.List;
 
 /**
@@ -20,6 +22,7 @@ import java.util.List;
  */
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHolder> {
     private SessionManager session;
+    Context ctx;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -59,21 +62,23 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, final int position) {
         JSONObject jsonObject = messages.get(position);
         String mAgo = "";
+        Long mTime;
         String mDescription = "";
         int category_id =1;
 
         try {
             mAgo = jsonObject.getString("ago");
+            mTime = jsonObject.getLong("updated_at");
             mDescription = jsonObject.getString("title");
             category_id = jsonObject.getInt("type");
+            String dateAgo = DateUtil.getTimeAgo(mTime,ctx);
+            holder.ago.setText(dateAgo);
+
             //Toast.makeText(," "+mDescription, Toast.LENGTH_LONG).show();
-Log.d("title", mDescription);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        holder.ago.setText(mAgo+"ago");
         holder.description.setText(mDescription + "test");
         if(category_id==1){
             holder.imageView.setImageResource(R.mipmap.ic_beenhere_black_36dp);
