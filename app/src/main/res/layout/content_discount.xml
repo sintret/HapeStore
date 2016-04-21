@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discount For Premium"
+            android:lineSpacingExtra="5dp"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Phone / Mobile Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+            <EditText android:id="@+id/subtotal"
+                android:drawableLeft="@mipmap/ic_add_black_36dp"
+                android:drawablePadding="10dp"
+                android:minHeight="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Sub Total" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Phone / Mobile Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+            <EditText android:id="@+id/discount"
+                android:drawableLeft="@mipmap/ic_add_black_36dp"
+                android:drawablePadding="10dp"
+                android:minHeight="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Discount" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- Phone / Mobile Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+            <EditText android:id="@+id/total"
+                android:drawableLeft="@mipmap/ic_add_black_36dp"
+                android:drawablePadding="10dp"
+                android:minHeight="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Total" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Save Changes Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:padding="12dp"
+            android:minHeight="70dp"
+            android:textSize="22dip"
+            android:text="Submit"/>
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
