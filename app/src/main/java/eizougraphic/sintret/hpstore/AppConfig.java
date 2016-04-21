@@ -36,12 +36,13 @@ public class AppConfig {
     public static String URL_CORE = "http://hushpuppies.co.id/mobile";
 
     // Server user login url
-    public static String URL_LOGIN = URL_CORE + "/api/login_store.php";
+    public static String URL_LOGIN = URL_CORE + "/api2/login_store.php";
 
     // Server user register url
-    public static String URL_SCAN = URL_CORE + "/api/scan_store.php";
-    public static String URL_PULL_MESSAGES = URL_CORE + "/api/pull_messages_store.php";
-    public static String URL_PRINT = URL_CORE + "/api/print.php";
+    public static String URL_SCAN = URL_CORE + "/api2/scan_store.php";
+    public static String URL_PULL_MESSAGES = URL_CORE + "/api2/pull_messages_store.php";
+    public static String URL_PRINT = URL_CORE + "/api2/print.php";
+    public static String URL_CARD_NUMBER_IS = URL_CORE + "/api2/card_number_is.php";
 
     public static boolean contains(String haystack, String needle) {
         haystack = haystack == null ? "" : haystack;

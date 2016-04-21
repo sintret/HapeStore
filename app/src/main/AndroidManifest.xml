@@ -26,7 +26,12 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".LoginActivity" >
+        android:name=".LoginActivity" >
+    </activity>
+        <activity
+            android:name=".DiscountActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
         </activity>
         <activity
             android:name=".ScannerActivity"

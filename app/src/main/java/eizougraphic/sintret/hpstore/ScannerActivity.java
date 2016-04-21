@@ -54,7 +54,7 @@ public class ScannerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //What to do on back clicked
-                Intent intent = new Intent(ScannerActivity.this,MainActivity.class);
+                Intent intent = new Intent(ScannerActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -89,21 +89,16 @@ public class ScannerActivity extends BaseActivity {
                 textView.setText(result.toString());
 
                 Boolean isPoint = AppConfig.contains(result.toString(), "-points-");
+                Boolean isCoupon = AppConfig.contains(result.toString(), "-coupons-");
 
                 if (isPoint) {
                     Intent intent1 = new Intent(ScannerActivity.this, PointActivity.class);
                     intent1.putExtra("qr_code", result.toString());
                     startActivity(intent1);
                     finish();
-                } else {
-                   /* Intent intent1 = new Intent(ScannerActivity.this,MainActivity.class);
-                    intent1.putExtra("success","Successfuly to send to server!");
-                    intent.putExtra("qr_code",result.toString());
-                    startActivity(intent1);
-                    finish();*/
-
+                } else if (isCoupon) {
                     String url = AppConfig.URL_SCAN;
-                    String error_message ="Successfully use a coupon";
+                    String error_message = "Successfully use a coupon";
 
                     final ProgressDialog pDialog = new ProgressDialog(ScannerActivity.this,
                             R.style.AppTheme_Dark_Dialog);
@@ -139,7 +134,6 @@ public class ScannerActivity extends BaseActivity {
                             pDialog.hide();
 
 
-
                         }
                     }, new Response.ErrorListener() {
 
@@ -151,6 +145,12 @@ public class ScannerActivity extends BaseActivity {
                     });
                     Volley.newRequestQueue(ScannerActivity.this).add(jsObjRequest);
 
+                } else {
+
+                    Intent intent1 = new Intent(ScannerActivity.this, DiscountActivity.class);
+                    intent1.putExtra("qr_code", result.toString());
+                    startActivity(intent1);
+                    finish();
 
                 }
 
