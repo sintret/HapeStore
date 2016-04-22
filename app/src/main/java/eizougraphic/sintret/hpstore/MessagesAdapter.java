@@ -73,24 +73,28 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
             category_id = jsonObject.getInt("type");
             String dateAgo = DateUtil.getTimeAgo(mTime,ctx);
             holder.ago.setText(dateAgo);
+            holder.description.setText(mDescription);
 
             //Toast.makeText(," "+mDescription, Toast.LENGTH_LONG).show();
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        holder.description.setText(mDescription + "test");
         if(category_id==1){
-            holder.imageView.setImageResource(R.mipmap.ic_beenhere_black_36dp);
+            holder.imageView.setImageResource(R.mipmap.ic_add_black_36dp);
         } else if(category_id==2){
-            holder.imageView.setImageResource(R.mipmap.ic_event_note_black_36dp);
+            holder.imageView.setImageResource(R.mipmap.ic_beenhere_black_36dp);
         } else if(category_id==3){
-            holder.imageView.setImageResource(R.mipmap.ic_forward_black_36dp);
+            holder.imageView.setImageResource(R.mipmap.ic_content_cut_black_36dp);
         } else if(category_id==4){
             holder.imageView.setImageResource(R.mipmap.ic_add_black_36dp);
         } else if(category_id==5){
+            holder.imageView.setImageResource(R.mipmap.ic_add_black_36dp);
+        }
+        else if(category_id==6){
             holder.imageView.setImageResource(R.mipmap.ic_local_post_office_black_36dp);
-        } else {
+        }
+        else {
             holder.imageView.setImageResource(R.mipmap.ic_launcher);
         }
 
